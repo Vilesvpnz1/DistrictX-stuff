@@ -315,5 +315,19 @@
     "level": 6,
     "website": "https://centralelgin.tvdsb.ca/en/index.aspx",
     "info": "Serves grades 9\u201312, offering academic and vocational programs. Literacy pass rates are solid but math scores show room for improvement."
+  },
+  {
+    "name": "Sir Wilfrid Laurier Secondary School",
+    "subtitle": "Public high school in southeast London with French Immersion",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "Offers French Immersion",
+      "good extracurriculars",
+      "strong community spirit"
+    ],
+    "level": 5,
+    "website": "https://laurier.tvdsb.ca/",
+    "info": "Serves grades 9\u201312 with around 1,130 students. Literacy pass rates are decent but math scores could improve."
   }
 ]

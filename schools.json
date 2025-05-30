@@ -116,5 +116,21 @@
     "level": 5,
     "website": "https://www.kingsacademycanada.com/",
     "info": "King's Academy is a private Christian school offering education from Junior Kindergarten to Grade 8 in St. Thomas, Ontario. The school emphasizes a faith-based curriculum and a close-knit community atmosphere. As of the 2025/2026 school year, King's Academy is relocating to a new facility at 410 Sunset Drive, enhancing its capacity to serve students and families. The school maintains affordable tuition rates and offers various opportunities for parental involvement and community engagement."
+  },
+  {
+    "name": "Southwold Public School",
+    "subtitle": "A rural JK\u20138 school near St. Thomas with about 650 students",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Small class sizes",
+      "good test scores",
+      "friendly staff",
+      "strong parent support",
+      "and eco-friendly programs"
+    ],
+    "level": 6,
+    "website": "https://southwold.tvdsb.ca/en/index.aspx",
+    "info": "A rural school west of St. Thomas. Runs from JK to Grade 8 with solid academics, arts, and sports. Bussing is provided."
   }
 ]

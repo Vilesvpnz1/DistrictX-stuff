@@ -287,5 +287,19 @@
     "level": 7,
     "website": "https://cch.ldcsb.ca/",
     "info": "Serving grades 9\u201312 with approximately 1,180 students, Catholic Central offers the International Baccalaureate program and various extracurricular activities. While the school provides a range of programs, recent EQAO scores indicate room for academic improvement."
+  },
+  {
+    "name": "Parkside Collegiate Institute",
+    "subtitle": "Largest secondary school in St. Thomas, offering diverse programs and extracurriculars",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "Wide range of academic and vocational programs",
+      "strong extracurricular activities",
+      "inclusive environment"
+    ],
+    "level": 8,
+    "website": "https://parkside.tvdsb.ca/en/index.aspx",
+    "info": "Serving approximately 1,040 students in grades 9\u201312, Parkside offers a variety of programs including French Immersion, arts, sciences, and technology. The school has a strong emphasis on extracurricular activities such as athletics, robotics, and the arts. EQAO data indicates that 54% of students met the provincial standard in Grade 9 math, and 81% passed the Grade 10 literacy test on their first attempt. These results are slightly below provincial averages, suggesting areas for academic improvement."
   }
 ]

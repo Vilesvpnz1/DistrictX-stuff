@@ -231,5 +231,19 @@
     "level": 4,
     "website": "https://crt.ldcsb.ca/",
     "info": "Located in south London, Sir Arthur Carty serves JK\u20138 students and is known for its diverse and inclusive community. EQAO scores are below provincial averages, particularly in math, indicating areas for academic improvement."
+  },
+  {
+    "name": "Kettle Creek Public School",
+    "subtitle": "JK\u20138 public school in St. Thomas with a strong community focus",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Active parent involvement",
+      "supportive staff",
+      "inclusive environment"
+    ],
+    "level": 5,
+    "website": "https://kettlecreek.tvdsb.ca/",
+    "info": "A JK\u20138 school in St. Thomas offering a range of programs. The school emphasizes community engagement and inclusivity. EQAO scores are not publicly available; academic performance is presumed average."
   }
 ]

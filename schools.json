@@ -146,5 +146,18 @@
     "level": 6,
     "website": "https://sjh.ldcsb.ca/",
     "info": "St. Joe's serves grades 9\u201312 with about 960 students. Offers a variety of academic and extracurricular programs. Literacy scores are solid, though math performance is slightly below the provincial average."
+  },
+  {
+    "name": "Mother Teresa Catholic Secondary School",
+    "subtitle": "Large Catholic high school in north London with over 1,400 students",
+    "type": "Catholic",
+    "levelType": "HighSchool",
+    "pros": [
+      "Wide range of academic and extracurricular programs",
+      "including AP and French Immersion; strong community involvement"
+    ],
+    "level": 7,
+    "website": "https://mts.ldcsb.ca/",
+    "info": "Established in 2000, MTS serves grades 9\u201312 with a diverse student body. Offers programs like Pre-AP, French Immersion, and Specialist High Skills Majors. While academics are solid, some areas like math performance are average. Known for its active arts and athletics programs."
   }
 ]

@@ -55,5 +55,21 @@
     "level": 8,
     "website": "https://ans.ldcsb.ca/",
     "info": "St. Anne's Catholic Elementary School, established in 2009, is a Catholic elementary school located in St. Thomas, Ontario. Serving students from Junior Kindergarten to Grade 8, it offers a comprehensive French Immersion program and is known for its strong academic performance. The school emphasizes faith-based education and provides a variety of extracurricular activities to support student development."
+  },
+  {
+    "name": "John Wise Public School",
+    "subtitle": "A vibrant JK\u20138 elementary school in St. Thomas, Ontario",
+    "type": "Public",
+    "levelType": "Elementary",
+    "pros": [
+      "Modern facilities",
+      "strong academic support",
+      "inclusive programs",
+      "active community",
+      "new playground"
+    ],
+    "level": 6,
+    "website": "https://johnwise.tvdsb.ca/en/index.aspx",
+    "info": "John Wise Public School is part of the Thames Valley District School Board and serves students from Junior Kindergarten to Grade 8. Located at 100 Parkside Drive in St. Thomas, Ontario, the school focuses on student well-being, academic excellence, and community engagement. With approximately 575 students, it offers language programs, special education support, and a range of extracurricular activities."
   }
 ]

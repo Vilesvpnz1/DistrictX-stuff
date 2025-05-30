@@ -39,5 +39,21 @@
     "level": 6,
     "website": "https://smh.ldcsb.ca/",
     "info": "Lowkey I'm not too familiar with St Mary's but i've heard they're quite motivated & Awesome Staff"
+  },
+  {
+    "name": "St. Anne's Catholic Elementary School",
+    "subtitle": "Large Catholic elementary school with strong community and extracurricular programs",
+    "type": "Catholic",
+    "levelType": "Elementary",
+    "pros": [
+      "French Immersion",
+      "Strong academic performance",
+      "Faith-based education",
+      "Diverse extracurricular activities",
+      "Supportive community"
+    ],
+    "level": 6,
+    "website": "https://ans.ldcsb.ca/",
+    "info": "St. Anne's Catholic Elementary School, established in 2009, is a Catholic elementary school located in St. Thomas, Ontario. Serving students from Junior Kindergarten to Grade 8, it offers a comprehensive French Immersion program and is known for its strong academic performance. The school emphasizes faith-based education and provides a variety of extracurricular activities to support student development."
   }
 ]

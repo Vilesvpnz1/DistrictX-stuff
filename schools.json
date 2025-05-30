@@ -259,5 +259,19 @@
     "level": 4,
     "website": "https://ashleyoaks.tvdsb.ca/en/index.aspx",
     "info": "A JK\u20138 school in south London with approximately 532 students. The school serves a culturally diverse population, including many newcomers to Canada. EQAO scores are below provincial averages, indicating areas for academic improvement."
+  },
+  {
+    "name": "Arthur Voaden Secondary School",
+    "subtitle": "Public high school in St. Thomas with a focus on technology and trades",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "Specialized programs in trades and technology",
+      "supportive community",
+      "vocational pathways"
+    ],
+    "level": 3,
+    "website": "https://arthurvoaden.tvdsb.ca/en/index.aspx",
+    "info": "Serving grades 9\u201312 with approximately 380 students, Arthur Voaden offers Specialist High Skills Majors in areas like construction, healthcare, and hospitality. While the school provides valuable vocational training, recent EQAO scores are below provincial averages, indicating areas for academic improvement."
   }
 ]

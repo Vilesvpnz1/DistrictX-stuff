@@ -217,5 +217,19 @@
     "level": 5,
     "website": "https://ant.ldcsb.ca/",
     "info": "Located in the White Oaks area of London, St. Anthony offers French Immersion from SK to Grade 8, with two JK classes in English. The school has a diverse student body and emphasizes Catholic values. EQAO data is not publicly available; academic performance is presumed average."
+  },
+  {
+    "name": "Sir Arthur Carty Catholic School",
+    "subtitle": "JK\u20138 Catholic school in south London with a diverse student body",
+    "type": "Catholic",
+    "levelType": "Middle",
+    "pros": [
+      "Inclusive environment",
+      "strong community support",
+      "faith-based education"
+    ],
+    "level": 4,
+    "website": "https://crt.ldcsb.ca/",
+    "info": "Located in south London, Sir Arthur Carty serves JK\u20138 students and is known for its diverse and inclusive community. EQAO scores are below provincial averages, particularly in math, indicating areas for academic improvement."
   }
 ]

@@ -71,5 +71,20 @@
     "level": 6,
     "website": "https://johnwise.tvdsb.ca/en/index.aspx",
     "info": "John Wise Public School is part of the Thames Valley District School Board and serves students from Junior Kindergarten to Grade 8. Located at 100 Parkside Drive in St. Thomas, Ontario, the school focuses on student well-being, academic excellence, and community engagement. With approximately 575 students, it offers language programs, special education support, and a range of extracurricular activities."
+  },
+  {
+    "name": "Locke's Public School",
+    "subtitle": "A community-focused JK\u20138 school in St. Thomas, Ontario",
+    "type": "Public",
+    "levelType": "Elementary",
+    "pros": [
+      "Active parent involvement",
+      "inclusive environment",
+      "strong community ties",
+      "dedicated staff"
+    ],
+    "level": 5,
+    "website": "https://lockes.tvdsb.ca/en/index.aspx",
+    "info": "Locke's Public School, part of the Thames Valley District School Board, serves students from Junior Kindergarten to Grade 8. Located at 20 South Edgeware Road in St. Thomas, Ontario, the school emphasizes academic excellence, character development, and community engagement. With a commitment to providing a well-rounded education, Locke's offers a comprehensive curriculum and various programs to support student growth and success."
   }
 ]

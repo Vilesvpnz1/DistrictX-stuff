@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Thomas & London Middle Schools</title>
+  <style>
+    body, html {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #1a0004;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+    .loader-panel {
+      position: relative;
+      z-index: 2;
+      background: rgba(30,0,10,0.85);
+      border-radius: 32px;
+      box-shadow: 0 12px 48px 0 rgba(179,18,23,0.45), 0 2px 8px 0 rgba(0,0,0,0.18);
+      padding: 40px 36px 36px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 420px;
+      width: 100%;
+      min-width: 0;
+      animation: fadeIn 1s;
+      border: 2.5px solid #e52d27;
+      backdrop-filter: blur(4px);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .loader-title {
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 36px;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 24px #b31217, 0 2px 8px rgba(0,0,0,0.18);
+      text-transform: uppercase;
+      filter: blur(0.2px);
+    }
+    .progress-bar-bg {
+      width: 280px;
+      height: 22px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 36px;
+      box-shadow: 0 2px 16px rgba(229,45,39,0.18);
+      border: 1.5px solid #b31217;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 50%, #b31217 100%);
+      border-radius: 16px 0 0 16px;
+      transition: width 0.25s cubic-bezier(.4,2,.3,1);
+      box-shadow: 0 0 16px #ff003c, 0 2px 8px #b31217;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-stripes {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.18) 0px,
+        rgba(255,255,255,0.18) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      animation: stripes-move 1.2s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes stripes-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 0; }
+    }
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      box-shadow: 0 0 24px 8px #ff003c, 0 0 8px 2px #e52d27;
+      opacity: 0.5;
+      pointer-events: none;
+      border-radius: 16px 0 0 16px;
+    }
+    .loading-message {
+      color: #ffb3b3;
+      font-size: 1.05rem;
+      margin-top: -18px;
+      margin-bottom: 18px;
+      min-height: 24px;
+      text-align: center;
+      letter-spacing: 1px;
+      font-weight: 500;
+      text-shadow: 0 2px 8px #b31217;
+      z-index: 2;
+      position: relative;
+      user-select: none;
+      filter: blur(0.1px);
+    }
+    .enter-btn {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 38px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, #b31217 0%, #e52d27 60%, #ff003c 100%);
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px #b31217, 0 2px 8px rgba(229,45,39,0.18);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .enter-btn:hover {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 60%, #b31217 100%);
+      transform: translateY(-3px) scale(1.06) rotate(-1deg);
+      box-shadow: 0 8px 32px #e52d27, 0 2px 8px #b31217;
+    }
+    #main-interface {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      background: none;
+      animation: fadeIn 1.2s;
+    }
+    .main-header {
+      display: flex;
+      align-items: center;
+      height: 72px;
+      padding: 0 36px;
+      background: rgba(30,0,10,0.85);
+      box-shadow: 0 2px 16px 0 rgba(179,18,23,0.12);
+      border-bottom: 2px solid #b31217;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: auto;
+      justify-content: space-between;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .dx-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #b31217;
+      background: #fff;
+      object-fit: cover;
+    }
+    .dx-title {
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #ff003c;
+      text-shadow: 0 2px 12px #b31217, 0 1px 2px #fff2;
+      text-transform: uppercase;
+      filter: blur(0.2px);
+      user-select: none;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+    .filters-section {
+  margin: 24px auto 0 auto;
+      background: rgba(30, 0, 10, 0.55);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.25), 0 2px 8px 0 rgba(0,0,0,0.18);
+      padding: 28px 28px 22px 28px;
+      max-width: 340px;
+      min-width: 260px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(8px) saturate(1.2);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .filters-title {
+      color: #ff003c;
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      text-shadow: 0 2px 12px #b31217, 0 1px 2px #fff2;
+      text-transform: uppercase;
+    }
+    .filter-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .filter-label {
+      display: flex;
+      align-items: center;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+      gap: 10px;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #b31217;
+    }
+    .filter-dot {
+      width: 13px;
+      height: 13px;
+      background: linear-gradient(135deg, #ff003c 0%, #e52d27 100%);
+      border-radius: 50%;
+      margin-right: 2px;
+      box-shadow: 0 0 12px #ff003c88, 0 0 2px #fff8;
+      border: 2px solid #fff2;
+      display: inline-block;
+    }
+    .filter-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 4px;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .filter-btn {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 18px;
+      padding: 8px 22px;
+      box-shadow: 0 2px 8px #b31217;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+      outline: none;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      filter: blur(0.1px);
+    }
+    .filter-btn:active, .filter-btn.selected {
+      background: linear-gradient(90deg, #e52d27 0%, #ff003c 100%);
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px #e52d27;
+    }
+    .slider-container {
+      position: relative;
+      margin-top: 6px;
+      margin-bottom: 0px;
+      width: 100%;
+      padding-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .level-slider {
+      width: 100%;
+      appearance: none;
+      height: 12px;
+      background: linear-gradient(90deg, #23232b 60%, #ff003c22 100%);
+      border-radius: 8px;
+      outline: none;
+      box-shadow: 0 2px 8px #2228;
+      transition: background 0.2s;
+      z-index: 1;
+      position: relative;
+    }
+    .level-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff003c 0%, #e52d27 100%);
+      border: 3px solid #fff;
+      box-shadow: 0 0 16px #ff003c, 0 2px 8px #b31217;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      z-index: 2;
+      position: relative;
+    }
+    .level-slider::-moz-range-thumb {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff003c 0%, #e52d27 100%);
+      border: 3px solid #fff;
+      box-shadow: 0 0 16px #ff003c, 0 2px 8px #b31217;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      z-index: 2;
+      position: relative;
+    }
+    .level-slider::-ms-thumb {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff003c 0%, #e52d27 100%);
+      border: 3px solid #fff;
+      box-shadow: 0 0 16px #ff003c, 0 2px 8px #b31217;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      z-index: 2;
+      position: relative;
+    }
+    .level-slider:focus::-webkit-slider-thumb {
+      border: 3px solid #ff003c;
+      background: #fff;
+    }
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      padding: 0 2px;
+      width: 100%;
+    }
+    .slider-label {
+      color: #ff4b2b;
+      font-size: 1.18rem;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      transition: color 0.2s, text-shadow 0.2s;
+      text-shadow: 0 2px 8px #b31217;
+      user-select: none;
+      filter: blur(0.1px);
+    }
+    .slider-label.selected {
+      color: #fff;
+      text-shadow: 0 2px 16px #ff003c, 0 2px 8px #b31217;
+    }
+    .slider-thumb-indicator {
+      position: absolute;
+      top: -8px;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: linear-gradient(135deg, #ff003c 0%, #e52d27 100%);
+      box-shadow: 0 0 16px #ff003c, 0 2px 8px #b31217;
+      pointer-events: none;
+      transition: left 0.2s;
+      z-index: 3;
+      display: none;
+    }
+    .school-type-options {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .school-type-btn {
+      flex: 1;
+      background: linear-gradient(90deg, #23232b 0%, #b31217 100%);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      padding: 7px 0;
+      box-shadow: 0 1px 4px #b3121740;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+      outline: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      filter: blur(0.1px);
+    }
+    .school-type-btn.selected, .school-type-btn:active {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      color: #fff;
+      box-shadow: 0 2px 8px #b31217;
+      transform: scale(1.04);
+    }
+    .contribute-btn {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 32px;
+      box-shadow: 0 2px 12px #b3121740, 0 1.5px 8px #ff003c22;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      outline: none;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      filter: blur(0.05px);
+      margin-left: auto;
+      margin-right: 0;
+      position: relative;
+    }
+    .contribute-btn:hover {
+      background: linear-gradient(90deg, #e52d27 0%, #ff003c 100%);
+      transform: scale(1.05);
+      box-shadow: 0 4px 24px #ff003c99, 0 2px 8px #b31217;
+    }
+    .contribute-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    .contribute-modal.active {
+      display: flex;
+    }
+    .contribute-modal-content {
+      background: rgba(30, 0, 10, 0.95);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 32px 36px 28px 36px;
+      min-width: 320px;
+      max-width: 400px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 1001;
+      backdrop-filter: blur(8px) saturate(1.2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      animation: fadeIn 0.3s;
+    }
+    .contribute-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #ff003c;
+      font-size: 1.7rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 1002;
+      transition: color 0.18s;
+    }
+    .contribute-modal-close:hover {
+      color: #fff;
+    }
+    .contribute-title {
+      color: #ff003c;
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      text-shadow: 0 2px 12px #b31217, 0 1px 2px #fff2;
+      text-transform: uppercase;
+    }
+    .contribute-content {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .contribute-contacts {
+      margin: 8px 0 0 0;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: #ffb3b3;
+    }
+    .contribute-list {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #ffb3b3;
+      font-size: 1.01rem;
+      font-weight: 500;
+    }
+    .contribute-list li {
+      margin-bottom: 4px;
+    }
+    .filters-contribute-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+      margin-top: 48px;
+      gap: 32px;
+    }
+    @media (max-width: 900px) {
+      .filters-contribute-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .contribute-section {
+        margin-left: 0;
+        margin-top: 32px;
+      }
+    }
+    .header-btns {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+    .credits-btn {
+      background: linear-gradient(90deg, #b31217 0%, #ff003c 100%);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 32px;
+      box-shadow: 0 2px 12px #b3121740, 0 1.5px 8px #ff003c22;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      outline: none;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      filter: blur(0.05px);
+      position: relative;
+    }
+    .credits-btn:hover {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      transform: scale(1.05);
+      box-shadow: 0 4px 24px #ff003c99, 0 2px 8px #b31217;
+    }
+    .credits-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    .credits-modal.active {
+      display: flex;
+    }
+    .credits-modal-content {
+      background: rgba(30, 0, 10, 0.95);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 32px 36px 28px 36px;
+      min-width: 320px;
+      max-width: 400px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 1001;
+      backdrop-filter: blur(8px) saturate(1.2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      animation: fadeIn 0.3s;
+    }
+    .credits-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #ff003c;
+      font-size: 1.7rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 1002;
+      transition: color 0.18s;
+    }
+    .credits-modal-close:hover {
+      color: #fff;
+    }
+    .credits-title {
+      color: #ff003c;
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      text-shadow: 0 2px 12px #b31217, 0 1px 2px #fff2;
+      text-transform: uppercase;
+    }
+    .credits-content {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.6;
+      width: 100%;
+    }
+    .credits-content a {
+      color: #ff003c;
+      font-weight: 700;
+      text-decoration: underline;
+      transition: color 0.18s;
+    }
+    .credits-content a:hover {
+      color: #fff;
+    }
+    .contributor-link {
+      color: #ff003c;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.18s;
+    }
+    .contributor-link:hover {
+      color: #fff;
+    }
+    .copied-msg {
+      color: #ff003c;
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-left: 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .copied-msg.active {
+      opacity: 1;
+    }
+    .filters-btn {
+      background: linear-gradient(90deg, #b31217 0%, #ff003c 100%);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 32px;
+      box-shadow: 0 2px 12px #b3121740, 0 1.5px 8px #ff003c22;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      outline: none;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      filter: blur(0.05px);
+      position: relative;
+    }
+    .filters-btn:hover {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      transform: scale(1.05);
+      box-shadow: 0 4px 24px #ff003c99, 0 2px 8px #b31217;
+    }
+    .filters-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    .filters-modal.active {
+      display: flex;
+    }
+    .filters-modal-content {
+      background: rgba(30, 0, 10, 0.95);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 32px 36px 28px 36px;
+      min-width: 320px;
+      max-width: 400px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 1001;
+      backdrop-filter: blur(8px) saturate(1.2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      animation: fadeIn 0.3s;
+    }
+    .filters-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #ff003c;
+      font-size: 1.7rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 1002;
+      transition: color 0.18s;
+    }
+    .filters-modal-close:hover {
+      color: #fff;
+    }
+    .school-list {
+      width: 100%;
+      max-width: 1200px;
+      margin: 48px 10px 0 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 80px;
+      min-height: 300px;
+      justify-items: center;
+      align-items: stretch;
+    }
+    .school-card {
+      width: 100%;
+      min-width: 0;
+      max-width: 260px;
+      background: rgba(30,0,10,0.92);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #b3121740, 0 1px 4px #0008;
+      border: 1.5px solid #ff003c44;
+      padding: 18px 22px 16px 22px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      transition: box-shadow 0.2s, border 0.2s;
+      animation: fadeIn 0.7s;
+    }
+    .school-card .school-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #ff003c;
+      letter-spacing: 1px;
+      margin-bottom: 0px;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      text-shadow: 0 1px 6px #b31217, 0 1px 2px #fff2;
+    }
+    .school-card .school-subtitle {
+      font-size: 0.98rem;
+      color: #ffb3b3;
+      margin-bottom: 2px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .school-card .school-meta {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 2px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .school-card .school-meta span {
+      background: #ff003c22;
+      color: #ff003c;
+      border-radius: 6px;
+      padding: 2px 8px;
+      margin-right: 3px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+    .school-card .school-level {
+      font-size: 0.98rem;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .school-card .school-proscons {
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .school-card .school-pros, .school-card .school-cons {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border-radius: 8px;
+      padding: 6px 10px;
+      min-width: 80px;
+    }
+    .school-card .school-pros-title, .school-card .school-cons-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 2px;
+      color: #ff003c;
+      letter-spacing: 0.5px;
+    }
+    .school-card .school-pros-list, .school-card .school-cons-list {
+      margin: 0;
+      padding-left: 16px;
+      color: #fff;
+      font-size: 0.78rem;
+    }
+    .school-card .school-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .school-action-btn {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      padding: 7px 20px;
+      box-shadow: 0 2px 8px #b3121740;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      outline: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      filter: blur(0.05px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .school-action-btn:hover {
+      background: linear-gradient(90deg, #e52d27 0%, #ff003c 100%);
+      transform: scale(1.04);
+      box-shadow: 0 4px 16px #e52d27;
+    }
+    .school-info-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.65);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    .school-info-modal.active {
+      display: flex;
+    }
+    .school-info-modal-content {
+      background: rgba(30, 0, 10, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 28px 32px 22px 32px;
+      min-width: 320px;
+      max-width: 400px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 2001;
+      backdrop-filter: blur(8px) saturate(1.2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      animation: fadeIn 0.3s;
+    }
+    .school-info-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #ff003c;
+      font-size: 1.5rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 2002;
+      transition: color 0.18s;
+    }
+    .school-info-modal-close:hover {
+      color: #fff;
+    }
+    .school-info-title {
+      color: #ff003c;
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+      text-shadow: 0 2px 8px #b31217, 0 1px 2px #fff2;
+      text-transform: uppercase;
+    }
+    .school-info-desc {
+      color: #fff;
+      font-size: 1.01rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    @media (max-width: 950px) {
+      .school-list {
+        max-width: 650px;
+      }
+    }
+    .staff-btn {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 32px;
+      box-shadow: 0 2px 12px #b3121740, 0 1.5px 8px #ff003c22;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      outline: none;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      filter: blur(0.05px);
+      position: relative;
+    }
+    .staff-btn:hover {
+      background: linear-gradient(90deg, #e52d27 0%, #ff003c 100%);
+      transform: scale(1.05);
+      box-shadow: 0 4px 24px #ff003c99, 0 2px 8px #b31217;
+    }
+    .staff-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.65);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    .staff-modal-content {
+      background: rgba(30, 0, 10, 0.97);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 28px 32px 22px 32px;
+      min-width: 320px;
+      max-width: 400px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 3001;
+      backdrop-filter: blur(8px) saturate(1.2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      animation: fadeIn 0.3s;
+    }
+    .staff-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #ff003c;
+      font-size: 1.5rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 3002;
+      transition: color 0.18s;
+    }
+    .staff-modal-close:hover {
+      color: #fff;
+    }
+    .staff-key-input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 16px;
+      border-radius: 8px;
+      border: 1.5px solid #ff003c44;
+      font-size: 1.1rem;
+      background: #1a0004;
+      color: #fff;
+      outline: none;
+      margin-bottom: 10px;
+    }
+    .staff-key-submit {
+      background: linear-gradient(90deg, #ff003c 0%, #e52d27 100%);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 28px;
+      box-shadow: 0 2px 8px #b3121740;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      outline: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      filter: blur(0.05px);
+      margin-top: 8px;
+    }
+    .staff-key-submit:hover {
+      background: linear-gradient(90deg, #e52d27 0%, #ff003c 100%);
+      transform: scale(1.04);
+      box-shadow: 0 4px 16px #e52d27;
+    }
+    .staff-key-error {
+      color: #ff003c;
+      font-size: 1.01rem;
+      font-weight: 700;
+      margin-top: 8px;
+      display: none;
+    }
+    .staff-loading {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.85);
+      z-index: 4000;
+      align-items: center;
+      justify-content: center;
+    }
+    .staff-loading-content {
+      background: rgba(30, 0, 10, 0.97);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 32px 36px 28px 36px;
+      min-width: 320px;
+      max-width: 400px;
+      border: 1.5px solid #ff003c44;
+      position: relative;
+      z-index: 4001;
+      backdrop-filter: blur(8px) saturate(1.2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 0.3s;
+    }
+    .staff-panel-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20,0,10,0.85);
+      z-index: 5000;
+      align-items: center;
+      justify-content: center;
+    }
+    .staff-panel-content {
+      background: rgba(30,0,10,0.97);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px 0 rgba(179,18,23,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+      padding: 32px 24px;
+      min-width: 340px;
+      min-height: 200px;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      color: #fff;
+      position: relative;
+    }
+    .staff-panel-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      color: #ff003c;
+      font-size: 2rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.18s;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="loader-panel">
+    <div class="loader-title">LOADING INTERFACE</div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-stripes"></div>
+      </div>
+    </div>
+    <div class="loading-message" id="loadingMessage">Initializing...</div>
+    <button class="enter-btn" id="enterBtn">Enter Interface</button>
+  </div>
+  <div id="main-interface" style="display:none;">
+    <header class="main-header">
+      <div class="logo-container">
+        <img src="https://i.ibb.co/kVJTCdn2/e2abe3e6-9fc2-4134-93ba-0ba2df038cc7.png" alt="DistrictX Logo" class="dx-logo">
+        <span class="dx-title">DistrictX</span>
+      </div>
+      <div class="header-btns">
+        <button class="filters-btn" id="filtersBtn">Filters</button>
+        <button class="contribute-btn" id="contributeBtn">Contribute</button>
+        <button class="credits-btn" id="creditsBtn">Credits</button>
+      </div>
+    </header>
+    <main class="school-list" id="schoolList">
+      <!-- School cards will be rendered here -->
+    </main>
+    <div class="filters-modal" id="filtersModal">
+      <div class="filters-modal-content">
+        <button class="filters-modal-close" id="closeFiltersModal">&times;</button>
+        <section class="filters-section">
+          <h2 class="filters-title">Filters</h2>
+          <div class="filter-group">
+            <div class="filter-label">
+              <span class="filter-dot"></span>
+              Level (Power)
+            </div>
+            <div class="filter-buttons">
+              <button class="filter-btn" id="allBtn">ALL</button>
+              <button class="filter-btn" id="levelAllBtn">LEVEL: ALL</button>
+            </div>
+            <div class="slider-container">
+              <input type="range" min="0" max="8" value="0" class="level-slider" id="levelSlider">
+              <div class="slider-labels">
+                <span class="slider-label" data-value="0">0</span>
+                <span class="slider-label" data-value="1">1</span>
+                <span class="slider-label" data-value="2">2</span>
+                <span class="slider-label" data-value="3">3</span>
+                <span class="slider-label" data-value="4">4</span>
+                <span class="slider-label" data-value="5">5</span>
+                <span class="slider-label" data-value="6">6</span>
+                <span class="slider-label" data-value="7">7</span>
+                <span class="slider-label" data-value="8">8</span>
+              </div>
+              <div class="slider-thumb-indicator" id="sliderThumb"></div>
+            </div>
+            <div class="school-type-options">
+              <button class="school-type-btn selected" id="schoolTypeAll">All</button>
+              <button class="school-type-btn" id="schoolTypePublic">Public</button>
+              <button class="school-type-btn" id="schoolTypeCatholic">Catholic</button>
+              <button class="school-type-btn" id="schoolTypeHigh">Highschools</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="contribute-modal" id="contributeModal">
+      <div class="contribute-modal-content">
+        <button class="contribute-modal-close" id="closeContributeModal">&times;</button>
+        <h2 class="contribute-title">Contribute</h2>
+        <div class="contribute-content">
+          <p>In Order to contribute please direct message me on <b>Snap</b> or <b>Discord</b>!</p>
+          <div class="contribute-contacts">
+            <div><b>Snap:</b> v1lesvpn</div>
+            <div><b>Discord:</b> wekilledtheunicorns</div>
+          </div>
+          <p style="margin-top: 12px;">Please state the school you want to add and fill out this:</p>
+          <ul class="contribute-list">
+            <li><b>Name</b></li>
+            <li><b>SubTitle</b> which will go below the name</li>
+            <li><b>Catholic or Public</b></li>
+            <li><b>HighSchool Or Middle</b></li>
+            <li><b>Pros & Cons</b></li>
+            <li><b>What level is the school?</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="credits-modal" id="creditsModal">
+      <div class="credits-modal-content">
+        <button class="credits-modal-close" id="closeCreditsModal">&times;</button>
+        <h2 class="credits-title">Credits</h2>
+        <div class="credits-content">
+          <div style="margin-bottom: 18px;">
+            <b>Sole Developer:</b> <a href="https://wekilledtheunicorns.netlify.app/" target="_blank">Wekilledtheunicorns</a>
+          </div>
+          <div style="margin-bottom: 8px;"><b>School Contributors:</b></div>
+          <div>
+            <span class="contributor-link" id="czanrheySnap">Czanrhey</span>
+            <span class="copied-msg" id="copiedMsg">Snap username copied!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": ["#ff003c", "#e52d27", "#b31217", "#ff4b2b"] },
+        "shape": {
+          "type": ["circle", "triangle", "polygon"],
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.7,
+          "random": true,
+          "anim": { "enable": true, "speed": 1.2, "opacity_min": 0.3, "sync": false }
+        },
+        "size": {
+          "value": 6,
+          "random": true,
+          "anim": { "enable": true, "speed": 4, "size_min": 2, "sync": false }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 140,
+          "color": "#ff003c",
+          "opacity": 0.4,
+          "width": 2
+        },
+        "move": {
+          "enable": true,
+          "speed": 2.5,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 120, "duration": 0.4 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    const progressBar = document.getElementById('progressBar');
+    const enterBtn = document.getElementById('enterBtn');
+    let progress = 0;
+    const loadingMessages = [
+      'Initializing interface...',
+      'Loading school data...',
+      'Fetching rankings...',
+      'Optimizing visuals...',
+      'Generating edgy particles...',
+      'Applying red theme...',
+      'Contacting school servers...',
+      'Crunching numbers...',
+      'Sharpening edges...',
+      'Encrypting passwords...',
+      'Calibrating awesomeness...',
+      'Reticulating splines...',
+      'Loading secret sauce...',
+      'Polishing UI...',
+      'Syncing with satellites...',
+      'Summoning school spirits...',
+      'Finalizing interface...',
+      'Almost there...'
+    ];
+    const loadingMessage = document.getElementById('loadingMessage');
+    let messageIndex = 0;
+    function updateLoadingMessage(progress) {
+      // Change message based on progress
+      const idx = Math.min(
+        Math.floor(progress / (100 / loadingMessages.length)),
+        loadingMessages.length - 1
+      );
+      if (idx !== messageIndex) {
+        messageIndex = idx;
+        loadingMessage.textContent = loadingMessages[messageIndex];
+      }
+    }
+    function animateLoading() {
+      if (progress < 100) {
+        progress += Math.random() * 2 + 0.5;
+        if (progress > 100) progress = 100;
+        progressBar.style.width = progress + '%';
+        updateLoadingMessage(progress);
+        setTimeout(animateLoading, 80 + Math.random() * 120);
+      } else {
+        progressBar.style.width = '100%';
+        updateLoadingMessage(100);
+        setTimeout(() => {
+          loadingMessage.style.opacity = 0;
+          setTimeout(() => {
+            loadingMessage.style.display = 'none';
+            enterBtn.style.display = 'block';
+          }, 350);
+        }, 400);
+      }
+    }
+    animateLoading();
+    enterBtn.addEventListener('click', () => {
+      document.querySelector('.loader-panel').style.display = 'none';
+      document.getElementById('main-interface').style.display = 'block';
+      // Here you can trigger the main interface to show
+    });
+
+    // Level filter logic
+    const slider = document.getElementById('levelSlider');
+    const sliderThumb = document.getElementById('sliderThumb');
+    const sliderLabels = document.querySelectorAll('.slider-label');
+    const allBtn = document.getElementById('allBtn');
+    const levelAllBtn = document.getElementById('levelAllBtn');
+    let selectedLevel = 'ALL';
+
+    function updateSliderUI() {
+      sliderLabels.forEach(label => {
+        if (label.dataset.value === String(slider.value)) {
+          label.classList.add('selected');
+        } else {
+          label.classList.remove('selected');
+        }
+      });
+      // Move the custom thumb indicator
+      const percent = slider.value / slider.max;
+      const sliderWidth = slider.offsetWidth;
+      const thumbWidth = 28;
+      const left = percent * (sliderWidth - thumbWidth);
+      sliderThumb.style.left = left + 'px';
+      sliderThumb.style.display = selectedLevel === 'ALL' ? 'none' : 'block';
+    }
+
+    slider.addEventListener('input', () => {
+      selectedLevel = slider.value;
+      allBtn.classList.remove('selected');
+      levelAllBtn.classList.remove('selected');
+      updateSliderUI();
+      // Update button text
+      if (slider.value === '0') {
+        levelAllBtn.textContent = 'LEVEL: ALL';
+      } else {
+        levelAllBtn.textContent = 'LEVEL: ' + slider.value;
+      }
+    });
+
+    allBtn.addEventListener('click', () => {
+      selectedLevel = 'ALL';
+      allBtn.classList.add('selected');
+      levelAllBtn.classList.remove('selected');
+      slider.value = 0;
+      updateSliderUI();
+      levelAllBtn.textContent = 'LEVEL: ALL';
+    });
+
+    levelAllBtn.addEventListener('click', () => {
+      selectedLevel = 'ALL';
+      allBtn.classList.remove('selected');
+      levelAllBtn.classList.add('selected');
+      slider.value = 0;
+      updateSliderUI();
+      levelAllBtn.textContent = 'LEVEL: ALL';
+    });
+
+    // School type filter logic
+    const schoolTypeBtns = [
+      document.getElementById('schoolTypeAll'),
+      document.getElementById('schoolTypePublic'),
+      document.getElementById('schoolTypeCatholic'),
+      document.getElementById('schoolTypeHigh')
+    ];
+    let selectedSchoolType = 'All';
+    schoolTypeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        schoolTypeBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedSchoolType = btn.textContent;
+        // Here you would filter the school list based on selectedSchoolType
+      });
+    });
+
+    // Contribute modal logic
+    const contributeBtn = document.getElementById('contributeBtn');
+    const contributeModal = document.getElementById('contributeModal');
+    const closeContributeModal = document.getElementById('closeContributeModal');
+    contributeBtn.addEventListener('click', () => {
+      contributeModal.classList.add('active');
+    });
+    closeContributeModal.addEventListener('click', () => {
+      contributeModal.classList.remove('active');
+    });
+    contributeModal.addEventListener('click', (e) => {
+      if (e.target === contributeModal) {
+        contributeModal.classList.remove('active');
+      }
+    });
+
+    // Credits modal logic
+    const creditsBtn = document.getElementById('creditsBtn');
+    const creditsModal = document.getElementById('creditsModal');
+    const closeCreditsModal = document.getElementById('closeCreditsModal');
+    creditsBtn.addEventListener('click', () => {
+      creditsModal.classList.add('active');
+    });
+    closeCreditsModal.addEventListener('click', () => {
+      creditsModal.classList.remove('active');
+    });
+    creditsModal.addEventListener('click', (e) => {
+      if (e.target === creditsModal) {
+        creditsModal.classList.remove('active');
+      }
+    });
+
+    // Copy snap username logic
+    const czanrheySnap = document.getElementById('czanrheySnap');
+    const copiedMsg = document.getElementById('copiedMsg');
+    czanrheySnap.addEventListener('click', () => {
+      navigator.clipboard.writeText('czanrhey');
+      copiedMsg.classList.add('active');
+      setTimeout(() => copiedMsg.classList.remove('active'), 1500);
+    });
+
+    // Filters modal logic
+    const filtersBtn = document.getElementById('filtersBtn');
+    const filtersModal = document.getElementById('filtersModal');
+    const closeFiltersModal = document.getElementById('closeFiltersModal');
+    filtersBtn.addEventListener('click', () => {
+      filtersModal.classList.add('active');
+    });
+    closeFiltersModal.addEventListener('click', () => {
+      filtersModal.classList.remove('active');
+    });
+    filtersModal.addEventListener('click', (e) => {
+      if (e.target === filtersModal) {
+        filtersModal.classList.remove('active');
+      }
+    });
+
+    // Initialize UI
+    allBtn.classList.add('selected');
+    updateSliderUI();
+    levelAllBtn.textContent = 'LEVEL: ALL';
+
+    // School data
+    const schools = [
+      {
+        name: 'Monsignor Morrison',
+        subtitle: 'Sleek School With Peak Education system & Students',
+        type: 'Catholic',
+        levelType: 'Middle',
+        pros: [
+          'Peak Education',
+          'Friendly Staff',
+          'Easy 2 Understand',
+          'Lots Of Events',
+          'Welcoming',
+          'Sleek Library'
+        ],
+        cons: [
+          'Vandalizing',
+          'Busses',
+          'School Quality',
+          'Low Quality Air',
+          'Mid Size'
+        ],
+        level: 8,
+        website: 'https://mor.ldcsb.ca/',
+        info: `Monsignor Morrison is a small, friendly Catholic school in St. Thomas that's part of the LDCSB. It's known for its supportive teachers, close community vibe, and focus on both learning and faith. A lot of families like it for its welcoming atmosphere and tight-knit feel.`
+      },
+      {
+        name: `St. Mary's Catholic High School`,
+        subtitle: 'Large, diverse high school with strong academics and athletics',
+        type: 'Catholic',
+        levelType: 'HighSchool',
+        pros: [
+          'Strong academic programs',
+          'French Immersion available',
+          'Specialist High Skills Major (Arts & Culture)',
+          'Active sports and athletics',
+          'Supportive, faith-based environment',
+          'Wide range of extracurriculars'
+        ],
+        cons: [],
+        level: 7,
+        website: 'https://smh.ldcsb.ca/',
+        info: `St. Mary\'s is a large and active Catholic high school offering strong academics, competitive athletics, and a wide range of programs. It's known for its school spirit, diverse student body, and solid post-secondary prep.`
+      },
+      {
+        name: 'John Wise Public School',
+        subtitle: 'A modern, community-focused elementary school in St. Thomas',
+        type: 'Public',
+        levelType: 'Middle',
+        pros: [
+          'Modern facilities including a new playground',
+          'Strong Grade 6 writing scores',
+          'Supportive and inclusive school community',
+          'Active arts and music programs',
+          'Involved parent and volunteer participation'
+        ],
+        cons: [],
+        level: 6,
+        website: 'https://johnwise.tvdsb.ca/en/index.aspx',
+        info: `John Wise Public School is a welcoming elementary school in St. Thomas, Ontario, serving students from Kindergarten through Grade 8. Part of the Thames Valley District School Board, it's known for its modern facilities, engaged community, and focus on student well-being. With strong writing scores, active arts programs, and a new playground, it provides a positive and supportive learning environment.`
+      }
+    ];
+
+    // Render schools
+    function renderSchools() {
+      const list = document.getElementById('schoolList');
+      list.innerHTML = '';
+      // Get filter values
+      let filterLevel = selectedLevel;
+      let filterType = selectedSchoolType;
+      // If filterType is 'All', show all
+      schools.forEach((school, idx) => {
+        // Level filter
+        if (filterLevel !== 'ALL' && Number(filterLevel) !== school.level) return;
+        // Type filter
+        if (filterType !== 'All') {
+          if (filterType === 'Public' && school.type !== 'Public') return;
+          if (filterType === 'Catholic' && school.type !== 'Catholic') return;
+          if (filterType === 'Highschools' && school.levelType !== 'HighSchool') return;
+        }
+        // Create card
+        const card = document.createElement('div');
+        card.className = 'school-card';
+        card.innerHTML = `
+          <div class="school-title">${school.name}</div>
+          <div class="school-subtitle">${school.subtitle}</div>
+          <div class="school-meta">
+            <span>${school.type}</span>
+            <span>${school.levelType}</span>
+          </div>
+          <div class="school-level">Level: <b>${school.level}</b></div>
+          <div class="school-proscons">
+            <div class="school-pros">
+              <div class="school-pros-title">Pros</div>
+              <ul class="school-pros-list">
+                ${school.pros.map(p => `<li>${p}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+          <div class="school-actions">
+            <a href="${school.website}" class="school-action-btn" target="_blank">Website</a>
+            <button class="school-action-btn info-btn" data-school-idx="${idx}">Info</button>
+          </div>
+        `;
+        // Info modal logic
+        card.querySelector('.info-btn').addEventListener('click', () => {
+          showSchoolInfoModal(school);
+        });
+        list.appendChild(card);
+      });
+    }
+
+    // Re-render schools on filter change
+    slider.addEventListener('input', renderSchools);
+    allBtn.addEventListener('click', renderSchools);
+    levelAllBtn.addEventListener('click', renderSchools);
+    schoolTypeBtns.forEach(btn => btn.addEventListener('click', renderSchools));
+
+    // School info modal (dynamic for each school)
+    let schoolInfoModal = document.createElement('div');
+    schoolInfoModal.className = 'school-info-modal';
+    schoolInfoModal.id = 'schoolInfoModal';
+    document.body.appendChild(schoolInfoModal);
+
+    function showSchoolInfoModal(school) {
+      schoolInfoModal.innerHTML = `
+        <div class="school-info-modal-content">
+          <button class="school-info-modal-close" id="closeSchoolInfoModal">&times;</button>
+          <div class="school-info-title">${school.name} - Information</div>
+          <div class="school-info-desc">${school.info}</div>
+        </div>
+      `;
+      schoolInfoModal.classList.add('active');
+      document.getElementById('closeSchoolInfoModal').onclick = function() {
+        schoolInfoModal.classList.remove('active');
+      };
+      schoolInfoModal.onclick = function(e) {
+        if (e.target === this) this.classList.remove('active');
+      };
+    }
+
+    // Initial render
+    renderSchools();
+  </script>
+</body>
+</html> 

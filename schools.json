@@ -245,5 +245,19 @@
     "level": 5,
     "website": "https://kettlecreek.tvdsb.ca/",
     "info": "A JK\u20138 school in St. Thomas offering a range of programs. The school emphasizes community engagement and inclusivity. EQAO scores are not publicly available; academic performance is presumed average."
+  },
+  {
+    "name": "Ashley Oaks Public School",
+    "subtitle": "JK\u20138 public school in south London with a diverse student body",
+    "type": "Public",
+    "levelType": "Middle School",
+    "pros": [
+      "Diverse community",
+      "inclusive programs",
+      "active extracurriculars"
+    ],
+    "level": 4,
+    "website": "https://ashleyoaks.tvdsb.ca/en/index.aspx",
+    "info": "A JK\u20138 school in south London with approximately 532 students. The school serves a culturally diverse population, including many newcomers to Canada. EQAO scores are below provincial averages, indicating areas for academic improvement."
   }
 ]

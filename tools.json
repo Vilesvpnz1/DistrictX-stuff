@@ -3,6 +3,15 @@
     "name": "Bitly",
     "description": "Create short, custom URLs for your links.",
     "url": "https://bitly.com/",
-    "emoji": "🔗"
+    "emoji": "\ud83d\udd17"
+  },
+  {
+    "name": "e",
+    "description": "e",
+    "url": "e",
+    "emoji": "e",
+    "buttons": [
+      "testing"
+    ]
   }
-] 
+]

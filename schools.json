@@ -203,5 +203,19 @@
     "level": 5,
     "website": "https://summerside.tvdsb.ca/en/index.aspx",
     "info": "Opened in 2022, Summerside serves JK\u20138 students in southeast London. With a capacity of 556 students and 88 child care spaces, the school offers various programs. As a new school, EQAO data is limited, but early indicators suggest average performance."
+  },
+  {
+    "name": "St. Anthony French Immersion Catholic School",
+    "subtitle": "JK\u20138 Catholic French Immersion school in London with about 470 students",
+    "type": "Catholic",
+    "levelType": "Middle",
+    "pros": [
+      "French Immersion program",
+      "diverse community",
+      "strong faith-based education"
+    ],
+    "level": 5,
+    "website": "https://ant.ldcsb.ca/",
+    "info": "Located in the White Oaks area of London, St. Anthony offers French Immersion from SK to Grade 8, with two JK classes in English. The school has a diverse student body and emphasizes Catholic values. EQAO data is not publicly available; academic performance is presumed average."
   }
 ]

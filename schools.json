@@ -22,5 +22,22 @@
     "level": 8,
     "website": "https://mor.ldcsb.ca/",
     "info": "Monsignor Morrison is a small, friendly Catholic school in St. Thomas that's part of the LDCSB. It's known for its supportive teachers, close community vibe, and focus on both learning and faith. A lot of families like it for its welcoming atmosphere and tight-knit feel."
+  },
+  {
+    "name": "St. Mary's Catholic High School",
+    "subtitle": "Large, diverse high school with strong academics and athletics",
+    "type": "Catholic",
+    "levelType": "HighSchool",
+    "pros": [
+      "Strong academic programs",
+      "French Immersion",
+      "SHSM programs",
+      "Active sports teams",
+      "Supportive environment",
+      "Lots of extracurriculars"
+    ],
+    "level": 6,
+    "website": "https://smh.ldcsb.ca/",
+    "info": "Lowkey I'm not too familiar with St Mary's but i've heard they're quite motivated & Awesome Staff"
   }
 ]

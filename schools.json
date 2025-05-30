@@ -329,5 +329,19 @@
     "level": 5,
     "website": "https://laurier.tvdsb.ca/",
     "info": "Serves grades 9\u201312 with around 1,130 students. Literacy pass rates are decent but math scores could improve."
+  },
+  {
+    "name": "London Christian High",
+    "subtitle": "Private Christian high school in London, Ontario",
+    "type": "Private",
+    "levelType": "High School",
+    "pros": [
+      "Christian worldview integration",
+      "small class sizes",
+      "strong extracurricular programs"
+    ],
+    "level": 6,
+    "website": "https://londonchristianhigh.ca/",
+    "info": "Offers grades 9\u201312 with approximately 250 students. Provides a robust academic program alongside extracurricular activities like athletics, arts, and co-op placements. Emphasizes a Christian perspective in all aspects of education."
   }
 ]

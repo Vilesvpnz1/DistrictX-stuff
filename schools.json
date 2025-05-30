@@ -189,5 +189,19 @@
     "level": 8,
     "website": "https://whiteoaks.tvdsb.ca/en/index.aspx",
     "info": "A JK\u20138 school in south London with over 1,000 students. Offers French Immersion and various programs. EQAO scores are below average; math performance needs improvement."
+  },
+  {
+    "name": "Summerside Public School",
+    "subtitle": "New JK\u20138 public school in southeast London with about 550 students",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Modern facilities",
+      "diverse programs",
+      "active parent community"
+    ],
+    "level": 5,
+    "website": "https://summerside.tvdsb.ca/en/index.aspx",
+    "info": "Opened in 2022, Summerside serves JK\u20138 students in southeast London. With a capacity of 556 students and 88 child care spaces, the school offers various programs. As a new school, EQAO data is limited, but early indicators suggest average performance."
   }
 ]

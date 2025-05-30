@@ -25,14 +25,14 @@
   },
   {
     "name": "e",
-    "subtitle": "ee",
-    "type": "e",
-    "levelType": "e",
+    "subtitle": "e",
+    "type": "y",
+    "levelType": "ee",
     "pros": [
-      "e"
+      "2"
     ],
     "level": 2,
-    "website": "2",
-    "info": "2"
+    "website": "e",
+    "info": "e"
   }
 ]

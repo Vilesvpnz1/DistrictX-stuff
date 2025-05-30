@@ -101,5 +101,20 @@
     "level": 4,
     "website": "https://forestpark.tvdsb.ca/en/index.aspx",
     "info": "Forest Park Public School, part of the Thames Valley District School Board, serves students from Junior Kindergarten to Grade 8. Located at 295 Forest Avenue in St. Thomas, Ontario, the school has an enrollment of approximately 538 students. It offers small class sizes and hosts an EarlyON Child and Family Centre, providing resources for families with children up to age 6. While the school demonstrates strengths in reading proficiency, with 64% of Grade 6 students meeting provincial standards, it faces challenges in mathematics, where only 39% of Grade 6 students meet the standard. The school is committed to continuous improvement and community engagement."
+  },
+  {
+    "name": "King's Academy",
+    "subtitle": "Private Christian JK\u20138 school in St. Thomas, Ontario",
+    "type": "Private",
+    "levelType": "Elementary",
+    "pros": [
+      "Faith-based education",
+      "small class sizes",
+      "strong community involvement",
+      "affordable tuition"
+    ],
+    "level": 5,
+    "website": "https://www.kingsacademycanada.com/",
+    "info": "King's Academy is a private Christian school offering education from Junior Kindergarten to Grade 8 in St. Thomas, Ontario. The school emphasizes a faith-based curriculum and a close-knit community atmosphere. As of the 2025/2026 school year, King's Academy is relocating to a new facility at 410 Sunset Drive, enhancing its capacity to serve students and families. The school maintains affordable tuition rates and offers various opportunities for parental involvement and community engagement."
   }
 ]

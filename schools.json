@@ -175,5 +175,19 @@
     "level": 5,
     "website": "https://elgincourt.tvdsb.ca/en/index.aspx",
     "info": "A JK\u20138 school in south St. Thomas with around 305 students. Offers a range of programs including academics, arts, and athletics. EQAO scores are average; math performance could improve."
+  },
+  {
+    "name": "White Oaks Public School",
+    "subtitle": "Large JK\u20138 public school in south London with over 1,000 students",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Offers French Immersion",
+      "diverse community",
+      "strong extracurricular programs"
+    ],
+    "level": 8,
+    "website": "https://whiteoaks.tvdsb.ca/en/index.aspx",
+    "info": "A JK\u20138 school in south London with over 1,000 students. Offers French Immersion and various programs. EQAO scores are below average; math performance needs improvement."
   }
 ]

@@ -273,5 +273,19 @@
     "level": 3,
     "website": "https://arthurvoaden.tvdsb.ca/en/index.aspx",
     "info": "Serving grades 9\u201312 with approximately 380 students, Arthur Voaden offers Specialist High Skills Majors in areas like construction, healthcare, and hospitality. While the school provides valuable vocational training, recent EQAO scores are below provincial averages, indicating areas for academic improvement."
+  },
+  {
+    "name": "Catholic Central High School",
+    "subtitle": "Downtown London Catholic high school with over 1,100 students",
+    "type": "Catholic",
+    "levelType": "HighSchool",
+    "pros": [
+      "Offers IB program",
+      "diverse student body",
+      "strong arts and athletics programs"
+    ],
+    "level": 7,
+    "website": "https://cch.ldcsb.ca/",
+    "info": "Serving grades 9\u201312 with approximately 1,180 students, Catholic Central offers the International Baccalaureate program and various extracurricular activities. While the school provides a range of programs, recent EQAO scores indicate room for academic improvement."
   }
 ]

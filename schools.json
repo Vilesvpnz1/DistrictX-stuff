@@ -159,5 +159,21 @@
     "level": 7,
     "website": "https://mts.ldcsb.ca/",
     "info": "Established in 2000, MTS serves grades 9\u201312 with a diverse student body. Offers programs like Pre-AP, French Immersion, and Specialist High Skills Majors. While academics are solid, some areas like math performance are average. Known for its active arts and athletics programs."
+  },
+  {
+    "name": "Elgin Court Public School",
+    "subtitle": "JK\u20138 public school in south St. Thomas with about 305 students",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Small student population",
+      "active PTA",
+      "offers academics",
+      "arts",
+      "and sports"
+    ],
+    "level": 5,
+    "website": "https://elgincourt.tvdsb.ca/en/index.aspx",
+    "info": "A JK\u20138 school in south St. Thomas with around 305 students. Offers a range of programs including academics, arts, and athletics. EQAO scores are average; math performance could improve."
   }
 ]

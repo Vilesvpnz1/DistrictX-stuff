@@ -132,5 +132,19 @@
     "level": 6,
     "website": "https://southwold.tvdsb.ca/en/index.aspx",
     "info": "A rural school west of St. Thomas. Runs from JK to Grade 8 with solid academics, arts, and sports. Bussing is provided."
+  },
+  {
+    "name": "St. Joseph's Catholic High School",
+    "subtitle": "Catholic high school in St. Thomas with around 960 students",
+    "type": "Catholic",
+    "levelType": "HighSchool",
+    "pros": [
+      "Strong literacy results",
+      "active sports and arts programs",
+      "supportive community"
+    ],
+    "level": 6,
+    "website": "https://sjh.ldcsb.ca/",
+    "info": "St. Joe's serves grades 9\u201312 with about 960 students. Offers a variety of academic and extracurricular programs. Literacy scores are solid, though math performance is slightly below the provincial average."
   }
 ]

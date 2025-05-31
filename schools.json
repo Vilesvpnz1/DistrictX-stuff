@@ -455,5 +455,19 @@
     "level": 6,
     "website": "https://trudeau.tvdsb.ca/",
     "info": "Offers French Immersion for JK\u20138 with a focus on bilingual education. Engaged parent community and various extracurricular activities."
+  },
+  {
+    "name": "St. Rose of Lima Catholic Elementary School",
+    "subtitle": "Catholic elementary school in London",
+    "type": "Catholic",
+    "levelType": "Middle",
+    "pros": [
+      "Strong academic focus",
+      "faith-based learning",
+      "supportive community"
+    ],
+    "level": 6,
+    "website": "https://rose.ldcsb.ca/",
+    "info": "Provides JK\u20138 education emphasizing Catholic teachings and academic excellence. Active parent involvement and extracurricular opportunities."
   }
 ]

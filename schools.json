@@ -385,5 +385,19 @@
     "level": 5,
     "website": "https://clarkeroad.tvdsb.ca/",
     "info": "Serves grades 9\u201312, offering programs in technology, arts, and academics. Known for its inclusive atmosphere and community involvement."
+  },
+  {
+    "name": "College Avenue Secondary School",
+    "subtitle": "Public high school in Woodstock with a range of programs",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "Offers arts and technology programs",
+      "active student life",
+      "supportive staff"
+    ],
+    "level": 5,
+    "website": "https://collegeavenue.tvdsb.ca/",
+    "info": "Provides education for grades 9\u201312 with a focus on both academic and technical studies. Encourages student participation in various extracurricular activities."
   }
 ]

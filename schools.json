@@ -441,5 +441,19 @@
     "level": 4,
     "website": "https://glencoe.tvdsb.ca/",
     "info": "Serves grades 9\u201312 in Glencoe, offering academic and vocational programs with a focus on individualized student support."
+  },
+  {
+    "name": "Pierre Elliott Trudeau French Immersion Public School",
+    "subtitle": "French Immersion public school in St. Thomas",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Strong French program",
+      "supportive staff",
+      "active community involvement"
+    ],
+    "level": 6,
+    "website": "https://trudeau.tvdsb.ca/",
+    "info": "Offers French Immersion for JK\u20138 with a focus on bilingual education. Engaged parent community and various extracurricular activities."
   }
 ]

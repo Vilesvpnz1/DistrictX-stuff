@@ -371,5 +371,19 @@
     "level": 7,
     "website": "https://lucas.tvdsb.ca/",
     "info": "Serves grades 9\u201312 with a focus on academic excellence. Offers a variety of programs including Advanced Placement and a wide range of clubs and sports."
+  },
+  {
+    "name": "Clarke Road Secondary School",
+    "subtitle": "Public high school in east London with diverse programs",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "Variety of technical programs",
+      "inclusive environment",
+      "strong community ties"
+    ],
+    "level": 5,
+    "website": "https://clarkeroad.tvdsb.ca/",
+    "info": "Serves grades 9\u201312, offering programs in technology, arts, and academics. Known for its inclusive atmosphere and community involvement."
   }
 ]

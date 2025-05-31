@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "name": "Bitly",
+    "description": "Create short, custom URLs for your links.",
+    "url": "https://bitly.com/",
+    "emoji": "\ud83d\udd17",
+    "buttons": [
+      "URL Shorteners"
+    ]
+  }
+]

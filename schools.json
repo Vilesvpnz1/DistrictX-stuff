@@ -413,5 +413,19 @@
     "level": 4,
     "website": "https://eastelgin.tvdsb.ca/",
     "info": "Offers grades 9\u201312 with programs catering to a wide range of academic and vocational interests. Emphasizes community engagement and student support."
+  },
+  {
+    "name": "St. Anne's Catholic School",
+    "subtitle": "JK\u20138 Catholic school in St. Thomas with modern facilities",
+    "type": "Catholic",
+    "levelType": "Middle",
+    "pros": [
+      "Modern facilities",
+      "active extracurriculars",
+      "strong community involvement"
+    ],
+    "level": 7,
+    "website": "https://ans.ldcsb.ca/",
+    "info": "Opened in 2009, serving JK\u20138 with recent expansions. Offers various clubs and athletics, fostering a supportive community environment."
   }
 ]

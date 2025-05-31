@@ -343,5 +343,19 @@
     "level": 6,
     "website": "https://londonchristianhigh.ca/",
     "info": "Offers grades 9\u201312 with approximately 250 students. Provides a robust academic program alongside extracurricular activities like athletics, arts, and co-op placements. Emphasizes a Christian perspective in all aspects of education."
+  },
+  {
+    "name": "Mitchell Hepburn Public School",
+    "subtitle": "JK\u20138 public school in St. Thomas with around 695 students",
+    "type": "Public",
+    "levelType": "Middle",
+    "pros": [
+      "Active extracurriculars",
+      "strong community involvement",
+      "supportive staff"
+    ],
+    "level": 3,
+    "website": "https://mitchellhepburn.tvdsb.ca/en/index.aspx",
+    "info": "Serves JK\u20138 with about 695 students. Offers a range of programs and activities. EQAO scores are around average, with room for improvement in math."
   }
 ]

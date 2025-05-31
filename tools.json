@@ -16,5 +16,14 @@
     "buttons": [
       "URL Shorteners"
     ]
+  },
+  {
+    "name": "Rebrandly",
+    "description": "Custom branded links.",
+    "url": "https://www.rebrandly.com/",
+    "emoji": "\ud83d\udd17",
+    "buttons": [
+      "URL Shorteners"
+    ]
   }
 ]

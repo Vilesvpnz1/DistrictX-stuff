@@ -61,5 +61,8 @@
   },
   {
     "name": "Code Formatters"
+  },
+  {
+    "name": "Code Obfuscators"
   }
 ]

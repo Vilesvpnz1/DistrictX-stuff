@@ -7,5 +7,14 @@
     "buttons": [
       "URL Shorteners"
     ]
+  },
+  {
+    "name": "TinyURL",
+    "description": "Quick and easy link shortening.",
+    "url": "https://tinyurl.com/",
+    "emoji": "\ud83d\udd17",
+    "buttons": [
+      "URL Shorteners"
+    ]
   }
 ]

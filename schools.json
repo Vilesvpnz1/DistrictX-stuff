@@ -357,5 +357,19 @@
     "level": 3,
     "website": "https://mitchellhepburn.tvdsb.ca/en/index.aspx",
     "info": "Serves JK\u20138 with about 695 students. Offers a range of programs and activities. EQAO scores are around average, with room for improvement in math."
+  },
+  {
+    "name": "A.B. Lucas Secondary School",
+    "subtitle": "Public high school in north London with strong academics",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "High academic performance",
+      "diverse extracurriculars",
+      "strong community reputation"
+    ],
+    "level": 7,
+    "website": "https://lucas.tvdsb.ca/",
+    "info": "Serves grades 9\u201312 with a focus on academic excellence. Offers a variety of programs including Advanced Placement and a wide range of clubs and sports."
   }
 ]

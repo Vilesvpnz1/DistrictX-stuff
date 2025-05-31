@@ -427,5 +427,19 @@
     "level": 7,
     "website": "https://ans.ldcsb.ca/",
     "info": "Opened in 2009, serving JK\u20138 with recent expansions. Offers various clubs and athletics, fostering a supportive community environment."
+  },
+  {
+    "name": "Glencoe District High School",
+    "subtitle": "Small-town public high school with close-knit community",
+    "type": "Public",
+    "levelType": "HighSchool",
+    "pros": [
+      "Supportive staff",
+      "personalized attention",
+      "community involvement"
+    ],
+    "level": 4,
+    "website": "https://glencoe.tvdsb.ca/",
+    "info": "Serves grades 9\u201312 in Glencoe, offering academic and vocational programs with a focus on individualized student support."
   }
 ]

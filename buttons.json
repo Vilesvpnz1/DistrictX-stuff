@@ -34,5 +34,8 @@
   },
   {
     "name": "Text2Speech"
+  },
+  {
+    "name": "QR Code Generators"
   }
 ]
